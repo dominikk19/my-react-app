@@ -1,6 +1,7 @@
 import styles from './UserInput.module.css';
 import { useContext } from 'react';
 import { CalculatorComponentContext } from '../CalculatorComponentContext.jsx';
+import InputWrapper from '../../Common/InputWrapper.jsx';
 
 
 const UserInput = () => {
@@ -28,46 +29,36 @@ const UserInput = () => {
     return (
         <form onSubmit={submitHandler} className={styles.form}>
             <div className={styles.inputGroup}>
-                <p>
-                    <label htmlFor="currentSavings">Current Savings ($)</label>
-                    <input
-                        onChange={(event) => inputChangeHandler( 'currentSavings', event.target.value )}
-                        value={userInput.currentSavings}
-                        type="number"
-                        id="currentSavings"
-                    />
-                </p>
-                <p>
-                    <label htmlFor="yearlyContribution">Yearly Savings ($)</label>
-                    <input
-                        onChange={(event) => inputChangeHandler( 'yearlyContribution', event.target.value )}
-                        value={userInput.yearlyContribution}
-                        type="number"
-                        id="yearlyContribution"
-                    />
-                </p>
+                <InputWrapper
+                    name={"currentSavings"}
+                    label={"Current Savings ($)"}
+                    value={userInput.currentSavings}
+                    type={"number"}
+                    onChange={(event) => inputChangeHandler( 'currentSavings', event.target.value )}
+                />
+                <InputWrapper
+                    name={"yearlyContribution"}
+                    label={"Yearly Savings ($)"}
+                    value={userInput.yearlyContribution}
+                    type={"number"}
+                    onChange={(event) => inputChangeHandler( 'yearlyContribution', event.target.value )}
+                />
             </div>
             <div className={styles.inputGroup}>
-                <p>
-                    <label htmlFor="expectedReturn">
-                        Expected Interest (%, per year)
-                    </label>
-                    <input
-                        onChange={(event) => inputChangeHandler( 'expectedReturn', event.target.value )}
-                        value={userInput.expectedReturn}
-                        type="number"
-                        id="expectedReturn"
-                    />
-                </p>
-                <p>
-                    <label htmlFor="duration">Investment Duration (years)</label>
-                    <input
-                        onChange={(event) => inputChangeHandler( 'duration', event.target.value )}
-                        value={userInput.duration}
-                        type="number"
-                        id="duration"
-                    />
-                </p>
+                <InputWrapper
+                    name={"expectedReturn"}
+                    label={"Expected Interest (%, per year)"}
+                    value={userInput.expectedReturn}
+                    type={"number"}
+                    onChange={(event) => inputChangeHandler( 'expectedReturn', event.target.value )}
+                />
+                <InputWrapper
+                    name={"duration"}
+                    label={"Investment Duration (years)"}
+                    value={userInput.duration}
+                    type={"number"}
+                    onChange={(event) => inputChangeHandler( 'duration', event.target.value )}
+                />
             </div>
             <p className={styles.actions}>
                 <button
